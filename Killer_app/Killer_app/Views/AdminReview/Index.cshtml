@@ -1,0 +1,33 @@
+﻿@model PagedList.IPagedList<Killer_app.Model.Review>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Reviews</h2>
+<table class="table">
+    <tr>
+        <td>ID</td>
+        <td>User-Naam</td>
+        <td>Game-ID</td>
+        <td>Titel</td>
+        <td>Actions</td>
+    </tr>
+    @foreach(var review in Model)
+    {
+        <tr>
+            <td>@review.ID</td>
+            <td>@review.User</td>
+            <td>@review.Game</td>
+            <td>@review.Titel</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = review.ID })
+                @Html.ActionLink("Detals", "Details", new { id = review.ID })</td>
+        </tr>
+    }
+</table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

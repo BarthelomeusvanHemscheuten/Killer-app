@@ -1,0 +1,10 @@
+﻿@model Killer_app.Model.Profiel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Naam</h2>
+<img class="img-responsive" src="@Url.Action("getImg", "Profiel", new { id = Model.ID })" alt="Person Image" style="height: 200px; width: 300px" />
+<input type="button" value="Create" onclick="location.href='@Url.Action("Edit", "Profiel", new { id = Model.ID })'" />
+

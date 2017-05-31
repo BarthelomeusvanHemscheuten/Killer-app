@@ -1,0 +1,21 @@
+﻿@model Killer_app.Model.Profiel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+@Html.BeginForm("Edit", "Profiel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div>@Html.Label("Naam")</div>
+<input type="text" name="Naam" value="@Model.Naam" />
+<div>@Html.Label("Omschrijving")</div>
+<input type="text" name="Description" value="@Model.Desc" />
+<div>@Html.Label("Foto")</div>
+<img class="img-responsive" src="@Url.Action("getImg", "Profiel", new { id = Model.ID })" alt="Person Image" style="height: 200px; width: 300px" />
+<input type="file" name="file" id="file" style="width: 100%;" />
+<br />
+<button class="btn-lg" type="submit">Edit</button>
+}
+
+

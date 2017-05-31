@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Create Game</h2>
+
+
+@using (Html.BeginForm("Create", "AdminGame", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>@Html.Label("Naam")</div>
+    <input type="text" name="Naam" class="form-control" /><br />
+    <div>@Html.Label("Prijs")</div>
+    <input type="text" name="Prijs" class="form-control" /><br />
+    <div>@Html.Label("Score")</div>
+    <input type="text" name="Score" class="form-control" /><br />
+    <div>@Html.Label("Trailer")</div>
+    <input type="text" name="Trailer" class="form-control" /><br />
+    <div>@Html.Label("Foto")</div>
+    <input type="file" name="file" id="file" style="width: 100%;" />
+    <br />
+    <br />
+    <button class="btn-lg" type="submit">Create</button>
+}
+
+
+

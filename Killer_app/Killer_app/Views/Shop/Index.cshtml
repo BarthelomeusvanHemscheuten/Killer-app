@@ -1,0 +1,27 @@
+﻿@model PagedList.IPagedList<Game>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@using Killer_app.Model
+@foreach (var game in Model)
+{
+    <br />
+    <form class="table-bordered">
+        <h2>@game.Naam</h2>
+        @if (game.OudePrijs != 0)
+        {
+        <p style="text-decoration: line-through">@game.OudePrijs</p>
+        }
+        <h3>@game.Prijs</h3>
+        <br />
+        <img class="img-responsive" src="@Url.Action("getImg", "Shop", new { id = game.ID })" alt="Person Image" style="height: 200px; width: 300px" />
+        <br />
+    </form>
+    <br />
+    <br />
+}
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+

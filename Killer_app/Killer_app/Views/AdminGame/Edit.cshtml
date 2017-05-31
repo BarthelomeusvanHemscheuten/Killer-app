@@ -1,0 +1,27 @@
+﻿@model Killer_app.Model.Game
+
+@{
+
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm("Edit", "AdminGame", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>@Html.Label("ID")</div>
+    <input name="ID" class="form-control" value=" @Model.ID" readonly /><br />
+    <div>@Html.Label("Naam")</div>   
+    <input type="text" name="Naam" class="form-control" value="@Model.Naam"/><br />
+    <div>@Html.Label("Prijs")</div>
+    <input type="text" name="Prijs" class="form-control" value="@Model.Prijs" /><br />
+    <div>@Html.Label("OudePrijs")</div>
+    <input type="text" name="OudePrijs" class="form-control" value="@Model.OudePrijs" /><br />
+    <div>@Html.Label("Score")</div>
+    <input type="text" name="Score" class="form-control" value="@Model.Score"/><br />
+    <div>@Html.Label("Trailer")</div>
+    <input type="text" name="Trailer" class="form-control" value="@Model.Trailer" /><br />
+    <div>@Html.Label("Foto")</div>
+    <input type="file" name="file" /><br />
+    <button type="submit">Save</button>
+}
+
+

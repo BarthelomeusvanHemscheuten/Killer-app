@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>LogIn</h2>
+@using (Html.BeginForm("Index", "LogIn"))
+{
+    <div>@Html.Label("UserName")</div>
+    <input type="text" name="Naam" class="form-control" />
+    <div>@Html.Label("Wachtwoord")</div>
+    <input type="text" name="Wachtwoord" class="form-control" />
+    <button type="submit">Log in</button>
+}
+
